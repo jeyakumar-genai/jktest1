@@ -16,40 +16,39 @@ ngrok.set_auth_token("2zSAW4XAPHFzskRUMRKJL7RGpmz_82vGAUVBQgpDuk5dMd6NF")
 
 # Commented out IPython magic to ensure Python compatibility.
 # %%writefile app.py
-# import streamlit as st
-# 
-# st.set_page_config(page_title="Quiz App")
-# st.title("🧠 Simple Quiz App")
-# 
-# questions = [
-#     {
-#         "question": "What is the capital of France?",
-#         "options": ["Berlin", "Madrid", "Paris", "Rome"],
-#         "answer": "Paris"
-#     },
-#     {
-#         "question": "Which planet is known as the Red Planet?",
-#         "options": ["Earth", "Mars", "Jupiter", "Venus"],
-#         "answer": "Mars"
-#     },
-#     {
-#         "question": "Who wrote 'Hamlet'?",
-#         "options": ["Charles Dickens", "William Shakespeare", "Leo Tolstoy", "Mark Twain"],
-#         "answer": "William Shakespeare"
-#     }
-# ]
-# 
-# score = 0
-# 
-# for idx, q in enumerate(questions):
-#     st.subheader(f"Q{idx+1}: {q['question']}")
-#     user_answer = st.radio("Select an answer:", q["options"], key=idx)
-#     if user_answer == q["answer"]:
-#         score += 1
-# 
-# if st.button("Submit Quiz"):
-#     st.success(f"✅ Your score: {score} / {len(questions)}")
-#
+import streamlit as st
+st.set_page_config(page_title="Quiz App")
+st.title("🧠 Simple Quiz App")
+
+questions = [
+     {
+         "question": "What is the capital of France?",
+         "options": ["Berlin", "Madrid", "Paris", "Rome"],
+         "answer": "Paris"
+     },
+     {
+         "question": "Which planet is known as the Red Planet?",
+         "options": ["Earth", "Mars", "Jupiter", "Venus"],
+         "answer": "Mars"
+     },
+     {
+         "question": "Who wrote 'Hamlet'?",
+         "options": ["Charles Dickens", "William Shakespeare", "Leo Tolstoy", "Mark Twain"],
+         "answer": "William Shakespeare"
+     }
+ ]
+ 
+ score = 0
+ 
+ for idx, q in enumerate(questions):
+     st.subheader(f"Q{idx+1}: {q['question']}")
+     user_answer = st.radio("Select an answer:", q["options"], key=idx)
+     if user_answer == q["answer"]:
+         score += 1
+ 
+ if st.button("Submit Quiz"):
+     st.success(f"✅ Your score: {score} / {len(questions)}")
+
 
 # Kill any existing tunnels
 ngrok.kill()
